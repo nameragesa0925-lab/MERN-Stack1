@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
+import { apiUrl } from '../utils/api'
 
 const Register = () => {
   const { dispatch } = useWorkoutsContext()
@@ -27,7 +28,7 @@ const Register = () => {
 
     const workout = { ...formData }
 
-    const response = await fetch('/api/workouts', {
+    const response = await fetch(apiUrl('/api/workouts'), {
       method: 'POST',
       body: JSON.stringify(workout),
       headers: {

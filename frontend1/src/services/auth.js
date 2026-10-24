@@ -1,8 +1,7 @@
-// Use `REACT_APP_API_BASE` to configure the API base URL (e.g. http://localhost:5000)
-const API_BASE = process.env.REACT_APP_API_BASE || ''
+import { apiUrl } from '../utils/api'
 
 export function register(payload) {
-  return fetch(`${API_BASE}/api/auth/register`, {
+  return fetch(apiUrl('/api/auth/register'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
@@ -10,7 +9,7 @@ export function register(payload) {
 }
 
 export function login(payload) {
-  return fetch(`${API_BASE}/api/auth/login`, {
+  return fetch(apiUrl('/api/auth/login'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
